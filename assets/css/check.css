@@ -1,0 +1,61 @@
+.check-container {
+  position: relative;
+}
+
+#check {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  appearance: none;
+  background-color: #ddd;
+  width: 6rem;
+  aspect-ratio: 1;
+  cursor: pointer;
+  border: 0.5rem solid #aaa;
+  scale: 0.7;
+}
+
+#check::before,
+#check::after {
+  opacity: 0;
+  content: "";
+  background-color: #44f;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 1rem;
+}
+
+#check::before {
+  rotate: -50deg;
+  transform-origin: -0.2rem 2.5rem;
+  aspect-ratio: 0.6;
+}
+
+#check::after {
+  rotate: 220deg;
+  transform-origin: 0rem 1rem;
+  aspect-ratio: 0.25;
+}
+
+#check:checked {
+  &::before,
+  &::after {
+    animation: check 0.25s ease-in-out forwards;
+  }
+
+  &::after {
+    animation-delay: 0.1s;
+  }
+}
+
+@keyframes check {
+  from {
+    aspect-ratio: 3;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

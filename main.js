@@ -1,7 +1,7 @@
-const input = document.querySelector("input");
+const lightInput = document.querySelector("#light");
 
-input.addEventListener("click", () => {
-  if (input.checked) {
+lightInput.addEventListener("click", () => {
+  if (lightInput.checked) {
     document.body.style.backgroundColor = "#555";
   } else {
     document.body.removeAttribute("style");
