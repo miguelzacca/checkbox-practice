@@ -1,0 +1,136 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #eee;
+  flex-direction: column;
+  transition: all 0.5s;
+}
+
+html {
+  font-size: 10px;
+}
+
+div {
+  position: relative;
+  width: 10rem;
+  aspect-ratio: 2;
+  border-radius: 5rem;
+}
+
+input::before,
+input::after,
+label::before,
+label::after {
+  transition: all 0.25s;
+}
+
+label,
+input {
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+label {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: #88f;
+  border-radius: 5rem;
+}
+
+label::after,
+label::before {
+  content: "";
+  position: absolute;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background-color: #fff;
+  width: 2rem;
+}
+
+label::before {
+  top: 1rem;
+  left: 1rem;
+}
+
+label::after {
+  top: 0.7rem;
+  left: 2.5rem;
+}
+
+input {
+  appearance: none;
+  position: absolute;
+  background-color: #ff0;
+  top: 0;
+  left: calc(100% + 0.25rem);
+  transform: translateX(-100%);
+  height: 100%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  box-shadow: 0 0 15px #ffff0050, 0 0 10px #ffff0050, 0 0 5px #ffff0050;
+  z-index: 3;
+}
+
+input::before,
+input::after {
+  content: "";
+  position: absolute;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background-color: #aaa;
+  opacity: 0;
+}
+
+input::before {
+  left: 1rem;
+  top: 2rem;
+  width: 1rem;
+}
+
+input::after {
+  left: 2rem;
+  top: 1rem;
+  width: 0.8rem;
+}
+
+input:checked {
+  left: -0.25rem;
+  transform: none;
+  background-color: #ccc;
+  margin: 0;
+  box-shadow: 0 0 15px #cccccc50, 0 0 10px #cccccc50, 0 0 5px #cccccc50;
+
+  & ~ label {
+    background-color: #333;
+
+    &::before,
+    &::after {
+      width: 0.2rem;
+      box-shadow: 0 0 15px #eeeeeebb, 0 0 10px #eeeeeebb, 0 0 5px #eeeeeebb;
+      background-color: #eee;
+    }
+
+    &::before {
+      left: calc(100% - 3rem);
+    }
+
+    &::after {
+      left: calc(100% - 1.5rem);
+      top: 2rem;
+    }
+  }
+
+  &::after,
+  &::before {
+    opacity: 1;
+  }
+}
